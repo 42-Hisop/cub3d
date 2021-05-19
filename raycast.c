@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:42:46 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/05/20 03:19:08 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/05/20 05:08:26 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ int		raycasting(t_window *window)
 	window->screen_data = (unsigned int *)mlx_get_data_addr(window->screen,
 			&window->bpp, &window->size_line, &window->endian);
 
-	printf("%f\n", window->player->pos_x);
 	//cast(player, ray);
 		
 	return (0);

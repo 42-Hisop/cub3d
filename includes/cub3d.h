@@ -6,16 +6,19 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/05/20 03:18:46 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/05/20 05:07:49 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+// 지금은 임의로 지정해주었지만 맵 파싱해서 가져와야할 부분...
 # define MAP_W 24
 # define MAP_H 24
 # define SCREEN_W 800
 # define SCREEN_H 600
+
 # include "../mlx/mlx.h"
 # include <stdio.h>
 # include <math.h>
