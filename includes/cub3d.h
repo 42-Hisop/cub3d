@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/05/19 03:02:59 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/05/20 03:18:46 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,10 @@
 # define MAP_H 24
 # define SCREEN_W 800
 # define SCREEN_H 600
+# include "../mlx/mlx.h"
+# include <stdio.h>
 # include <math.h>
 # include <fcntl.h>
-
-typedef struct		s_window
-{
-	void			*mlx;
-	void			*win;
-	void			*screen;
-	unsigned int	screen_data;
-	int				bpp;
-	int				size_line;
-	int				endian;
-}					t_window;
 
 typedef struct		s_player
 {
@@ -43,7 +34,7 @@ typedef struct		s_player
 typedef struct		s_texture
 {
 	void			*img;
-	unsigned int	img_data;
+	unsigned int	*img_data;
 	int				bpp;
 	int				size_line;
 	int				endian;
@@ -71,7 +62,21 @@ typedef struct		s_ray
 	int				map_y;
 }					t_ray;
 
+typedef struct		s_window
+{
+	void			*mlx;
+	void			*win;
+	void			*screen;
+	unsigned int	*screen_data;
+	int				bpp;
+	int				size_line;
+	int				endian;
+	t_player		*player;
+	t_texture		*texture;
+}					t_window;
+
 void				check_map(t_player *player, t_texture *texture);
 void				player_init(t_player *player);
+int					raycasting(t_window *window);
 
 #endif
