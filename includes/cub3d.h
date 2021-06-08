@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/05/20 05:07:49 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/08 18:37:19 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 # define SCREEN_H 600
 
 # include "../mlx/mlx.h"
+# include "split.h"
 # include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
 
@@ -36,6 +39,7 @@ typedef struct		s_player
 
 typedef struct		s_texture
 {
+	char			*adr;
 	void			*img;
 	unsigned int	*img_data;
 	int				bpp;
@@ -74,12 +78,22 @@ typedef struct		s_window
 	int				bpp;
 	int				size_line;
 	int				endian;
+	char			*f_color;
+	char			*c_color;
 	t_player		*player;
 	t_texture		*texture;
 }					t_window;
 
-void				check_map(t_player *player, t_texture *texture);
+void				check_map(t_window *window);
 void				player_init(t_player *player);
 int					raycasting(t_window *window);
+void				*error(void);
+int					ft_atoi(char *s);
+void				make_hex(char *hex);
+char				*ft_itoh(int num, char *rgb, int i);
+char				*itorgb(int r, int g, int b);
+t_texture			*tex_adr(char **line, t_texture *tex);
+int					line_format(char *line, char *str);
+void				check_map(t_window *window);
 
 #endif
