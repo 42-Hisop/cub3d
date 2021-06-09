@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/08 16:02:46 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/08 21:12:51 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	check_map(t_window *window)
 	close(map_fd);
 	window->texture = tex_adr(line, window->texture);
 //	fnc_color(line);
+
+	map_parsing();
 	// 맵 파싱 및 플레이어위치 지정해주기
 //	player_init(player);
 }
