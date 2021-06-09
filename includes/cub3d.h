@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/08 18:37:19 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/09 18:07:37 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct		s_window
 	char			*c_color;
 	t_player		*player;
 	t_texture		*texture;
+	char			**map;
 }					t_window;
 
 void				check_map(t_window *window);
