@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_cut.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
+/*   Updated: 2021/06/16 17:01:18 by khee-seo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/cub3d.h"
 #include "includes/split.h"
 
@@ -48,7 +60,7 @@ char	*dup_map(char *map, char *line, int map_w)
 		map[i] = line[i];
 		i++;
 	}
-	while (i < map_w)
+	while (i <= map_w)
 	{
 		map[i] = ' ';
 		i++;
@@ -68,11 +80,12 @@ char	**cut_map(char **line)
 
 	map_w = check_map_w(line);
 	map_h = check_map_h(line);
+
 	if (!(map = (char **)malloc(sizeof(char *) * (map_h + 1))))
 		return (error());
 	i = 0;
 	j = 8;
-	while (i <= map_h)
+	while (i < map_h)
 	{
 		if (!(map[i] = (char *)malloc(sizeof(char) * (map_w + 1))))
 			return (error());

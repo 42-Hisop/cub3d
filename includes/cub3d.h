@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/09 18:07:37 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:50:53 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ typedef struct		s_window
 }					t_window;
 
 void				check_map(t_window *window);
-void				player_init(t_player *player);
-int					raycasting(t_window *window);
+void				player_init(char **map, t_player *player);
+void				raycasting(t_window *window);
 void				*error(void);
 int					ft_atoi(char *s);
 void				make_hex(char *hex);

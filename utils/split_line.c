@@ -69,6 +69,7 @@ char 	**split_line(int fd)
 	char	**backup;
 	int		index;
 
+	rd = NULL;
 	while (1)
 	{
 		if (0 == read(fd, buf, 1))

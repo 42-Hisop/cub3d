@@ -65,14 +65,16 @@ int		ft_strstr(char *rd, char c)
 	int		count;
 
 	i = 0;
-	count = 0;
+	count = 1;
 	while (rd[i])
 	{
 		if (rd[i] == c)
 			count++;
 		i++;
 	}
-	if (count != 0)
-		count++;
+	if (rd[0] == c)
+		count--;
+	if (rd[i - 1] == c)
+		count--;
 	return (count);
 }

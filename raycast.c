@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:42:46 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/05/20 05:08:26 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/16 21:16:54 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sum_ray(t_ray *ray)
 	}
 }
 
-void	cast(t_player *player, t_ray *ray)
+void	cast(t_window *window, t_ray *ray)
 {
 	int			x;
 	int			hit;
@@ -72,19 +72,21 @@ void	cast(t_player *player, t_ray *ray)
 	while (x <= SCREEN_W)
 	{
 		hit = 1;
-		dir_camera_set(player, ray, x);
-		check_step(player, ray);
+		dir_camera_set(window->player, ray, x);
+		check_step(window->player, ray);
 		while (hit)
 		{
 			sum_ray(ray);
-		//	if (worldmap[ray->map_y][ray->map_x] > 0)
-		//		hit = 0;
+			if (window->map[ray->map_y][ray->map_x] == '1')
+				hit = 0;
 		}
+		dist(window->player, window->texture, ray);
+		draw(window, ray, x);
 		x++;
 	}
 }
 
-int		raycasting(t_window *window)
+void	raycasting(t_window *window)
 {
 	t_ray ray;
 
@@ -92,7 +94,5 @@ int		raycasting(t_window *window)
 	window->screen_data = (unsigned int *)mlx_get_data_addr(window->screen,
 			&window->bpp, &window->size_line, &window->endian);
 
-	//cast(player, ray);
-		
-	return (0);
+	cast(window, ray);
 }

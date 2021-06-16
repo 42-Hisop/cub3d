@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 01:37:39 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/04 14:31:24 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/16 21:05:08 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-void	dist(t_player *player, t_ray *ray)
+void	dist(t_player *player, t_texture *texture, t_ray *ray)
 {
 	if (ray->side == 0)
 		ray->perpwalldist = (ray->map_x - player->pos_x + (1 - ray->step_x) / 2) / ray->raydir_x;
@@ -24,5 +24,5 @@ void	dist(t_player *player, t_ray *ray)
 	else
 		ray->hit_point = player->pos_x + ray->perpwalldist * ray->raydir_x;
 	ray->hit_point -= (int)ray->hit_point;
-
+	ray->tex_x = ray->hit_point * texture->width;
 }
