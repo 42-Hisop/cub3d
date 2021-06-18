@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/16 20:50:53 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/18 20:58:30 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ typedef struct		s_window
 	int				bpp;
 	int				size_line;
 	int				endian;
-	char			*f_color;
-	char			*c_color;
+	int				f_color;
+	int				c_color;
 	t_player		*player;
 	t_texture		*texture;
 	char			**map;

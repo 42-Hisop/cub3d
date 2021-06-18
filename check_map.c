@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/16 20:38:02 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:48:41 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 char	**cut_map(char **line);
 void	map_valid(char **map);
+
 t_window *fnc_color(char **line, t_window *window);
 
 int		line_format(char *line, char *str)
