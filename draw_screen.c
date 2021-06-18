@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 21:17:24 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/18 21:10:53 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/18 21:44:05 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	draw(t_window *window, t_texture *texture, t_ray *ray, int x)
 		st_end[1] = SCREEN_H;
 	if (ray->side == 0 && ray->raydir_x > 0)
 		ray->tex_x = texture->width - ray->tex_x - 1;
-	if (ray->side == 1 && ray->raydir_Y < 0)
+	if (ray->side == 1 && ray->raydir_y < 0)
 		ray->tex_x = texture->width - ray->tex_x - 1;
 	//이 부분을 응용하면 텍스처 처리 가능?
 	draw_fnc(window, x);

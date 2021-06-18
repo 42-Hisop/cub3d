@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/18 20:58:30 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/18 21:39:01 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,11 @@ void				*error(void);
 int					ft_atoi(char *s);
 void				make_hex(char *hex);
 char				*ft_itoh(int num, char *rgb, int i);
-char				*itorgb(int r, int g, int b);
+int					itorgb(int r, int g, int b);
 t_texture			*tex_adr(char **line, t_texture *tex);
 int					line_format(char *line, char *str);
 void				check_map(t_window *window);
+void				dist(t_player *player, t_texture *texture, t_ray *ray);
+void				draw(t_window *window, t_texture *texture, t_ray *ray, int x);
 
 #endif

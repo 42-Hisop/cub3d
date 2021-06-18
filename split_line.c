@@ -1,5 +1,5 @@
-#include "../includes/cub3d.h"
-#include "../includes/split.h"
+#include "includes/cub3d.h"
+#include "includes/split.h"
 
 char 	*check_m(char *rd, int rd_i, char *backup, char c)
 {
