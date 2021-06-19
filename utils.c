@@ -34,6 +34,7 @@ int		itorgb(int r, int g, int b)
 {
 	int		num;
 
+	num = 0;
 	if (256 <= r || 256 <= g || 256 <= b)
 		error();
 	num = num + (r << 16);

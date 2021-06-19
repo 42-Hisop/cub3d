@@ -4,7 +4,7 @@
 
 void		fnc_allocate(char **f, char **c, t_window *window)
 {
-	int		num[6];
+	int		num[7];
 	int		i;
 	int		j;
 
@@ -37,6 +37,8 @@ t_window	*fnc_color(char **line, t_window *window)
 	f = ft_split(ft_strdup(&line[5][2]), ',');
 	c = ft_split(ft_strdup(&line[6][2]), ',');
 	fnc_allocate(f, c, window);
+	free_line(f);
+	free_line(c);
 
 	return (window);
 }

@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:44:53 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/16 20:05:20 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/20 05:36:05 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	vector_init2(char c, t_player *player)
 		if (c == 'S')
 		{
 			player->dir_x = 0;
-			player->dir_y = -1;
+			player->dir_y = 1;
 		}
 		if (c == 'N')
 		{
 			player->dir_x = 0;
-			player->dir_y = 1;
+			player->dir_y = -1;
 		}
 		player->plane_x = 0.66;
 		player->plane_y = 0;

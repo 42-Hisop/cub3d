@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/18 21:39:01 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/20 05:08:28 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define SCREEN_W 800
 # define SCREEN_H 600
 
-# include "../mlx/mlx.h"
 # include "split.h"
 # include <stdio.h>
 # include <unistd.h>
@@ -67,6 +66,7 @@ typedef struct		s_ray
 	int				line_height;
 	int				map_x;
 	int				map_y;
+	int				nswe;
 }					t_ray;
 
 typedef struct		s_window
@@ -87,7 +87,7 @@ typedef struct		s_window
 
 void				check_map(t_window *window);
 void				player_init(char **map, t_player *player);
-void				raycasting(t_window *window);
+int					raycasting(t_window *window);
 void				*error(void);
 int					ft_atoi(char *s);
 void				make_hex(char *hex);
@@ -95,8 +95,12 @@ char				*ft_itoh(int num, char *rgb, int i);
 int					itorgb(int r, int g, int b);
 t_texture			*tex_adr(char **line, t_texture *tex);
 int					line_format(char *line, char *str);
+void				free_line(char **line);
 void				check_map(t_window *window);
-void				dist(t_player *player, t_texture *texture, t_ray *ray);
+void				dist(t_player *player, t_ray *ray);
 void				draw(t_window *window, t_texture *texture, t_ray *ray, int x);
+int					key_press(int key, t_window *window);
+void				turn_left(t_player *player);
+void				turn_right(t_player *player);
 
 #endif

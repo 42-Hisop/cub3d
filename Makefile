@@ -1,5 +1,5 @@
 CC= gcc
-CFLAGS= -L ./mlx -lmlx -framework OpenGL -framework Appkit
+MLX= -L ./mlx -lmlx -framework OpenGL -framework Appkit
 SRCS= main.c \
 	  fnc.c \
 	  map_cut.c \
@@ -8,25 +8,28 @@ SRCS= main.c \
 	  split_line.c \
 	  split_utils.c \
 	  check_map.c \
-	  init_texture.c \
+	  texture_init.c \
 	  raycast.c \
 	  raycast2.c \
 	  utils.c \
 	  draw_screen.c \
+	  key_press.c \
+	  turn_player.c \
+
 
 OBJS= $(SRCS:.c=.o)
 NAME= cub3D
 
-$(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS)
-
-$(OBJS):
-	$(CC) -c $(SRCS)
-
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	$(CC) $(SRCS) $(MLX) -o $(NAME)
+
+.c.o:
+	$(CC) -c $< -o $(<:.c=.o)
+
 clean:
-	rm -f $(OBJS) $(BOBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

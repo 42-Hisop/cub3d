@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/18 16:48:41 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/20 03:39:06 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 char	**cut_map(char **line);
 void	map_valid(char **map);
+void	texture_init(t_window *window, t_texture *texture);
 
 t_window *fnc_color(char **line, t_window *window);
 
@@ -83,4 +84,5 @@ void	check_map(t_window *window)
 	map_valid(window->map);
 	free_line(line);
 	player_init(window->map, window->player);
+	texture_init(window, window->texture);
 }

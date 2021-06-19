@@ -6,11 +6,12 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:42:46 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/18 21:45:14 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/20 03:49:28 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
+#include "mlx/mlx.h"
 
 void	dir_camera_set(t_player *player, t_ray *ray, int x)
 {
@@ -80,13 +81,13 @@ void	cast(t_window *window, t_ray *ray)
 			if (window->map[ray->map_y][ray->map_x] == '1')
 				hit = 0;
 		}
-		dist(window->player, window->texture, ray);
+		dist(window->player, ray);
 		draw(window, window->texture, ray, x);
 		x++;
 	}
 }
 
-void	raycasting(t_window *window)
+int		raycasting(t_window *window)
 {
 	t_ray ray;
 
@@ -97,4 +98,5 @@ void	raycasting(t_window *window)
 	mlx_clear_window(window->mlx, window->win);
 	mlx_put_image_to_window(window->mlx, window->win, window->screen, 0, 0);
 	mlx_destroy_image(window->mlx, window->screen);
+	return (0);
 }
