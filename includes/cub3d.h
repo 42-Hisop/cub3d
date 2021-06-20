@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/20 05:08:28 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:22:32 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ t_texture			*tex_adr(char **line, t_texture *tex);
 int					line_format(char *line, char *str);
 void				free_line(char **line);
 void				check_map(t_window *window);
+void				cast(t_window *window, t_ray *ray);
+void				cast2(t_window *window, t_ray *ray);
+void				dir_camera_set(t_player *player, t_ray *ray, int x);
 void				dist(t_player *player, t_ray *ray);
 void				draw(t_window *window, t_texture *texture, t_ray *ray, int x);
 int					key_press(int key, t_window *window);

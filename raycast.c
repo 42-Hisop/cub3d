@@ -6,21 +6,12 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:42:46 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/20 03:49:28 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:16:52 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 #include "mlx/mlx.h"
-
-void	dir_camera_set(t_player *player, t_ray *ray, int x)
-{
-	ray->map_x = player->pos_x;
-	ray->map_y = player->pos_y;
-	ray->camera_x = 2 * x / (double)SCREEN_W - 1;
-	ray->raydir_x = player->dir_x + player->plane_x * ray->camera_x;
-	ray->raydir_y = player->dir_y + player->plane_y * ray->camera_x;
-}
 
 void	check_step(t_player *player, t_ray *ray)
 {
