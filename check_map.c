@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/20 03:39:06 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/24 22:00:09 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ void	free_line(char **line)
 	free(line);
 }
 
-void	check_map(t_window *window)
+void	check_map(t_window *window, char *map_name)
 {
 	char	**line;
 	int		map_fd;
 
-	map_fd = open("maps/test2.cub", O_RDONLY);
+	map_fd = open(map_name, O_RDONLY);
 	if (map_fd == -1)
-		printf("open fail");
+		error();
 	line = split_line(map_fd);
 	close(map_fd);
 	tex_adr(line, window->texture);

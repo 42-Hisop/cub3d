@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/20 21:22:32 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/24 22:01:49 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct		s_window
 	char			**map;
 }					t_window;
 
-void				check_map(t_window *window);
+void				check_map(t_window *window, char *map_name);
 void				player_init(char **map, t_player *player);
 int					raycasting(t_window *window);
 void				*error(void);
@@ -96,7 +96,6 @@ int					itorgb(int r, int g, int b);
 t_texture			*tex_adr(char **line, t_texture *tex);
 int					line_format(char *line, char *str);
 void				free_line(char **line);
-void				check_map(t_window *window);
 void				cast(t_window *window, t_ray *ray);
 void				cast2(t_window *window, t_ray *ray);
 void				dir_camera_set(t_player *player, t_ray *ray, int x);
@@ -105,5 +104,6 @@ void				draw(t_window *window, t_texture *texture, t_ray *ray, int x);
 int					key_press(int key, t_window *window);
 void				turn_left(t_player *player);
 void				turn_right(t_player *player);
+int					ft_strcmp(char *s1, char *s2);
 
 #endif
