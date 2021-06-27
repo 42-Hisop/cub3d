@@ -6,17 +6,16 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/16 17:01:18 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 20:32:59 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
-#include "includes/split.h"
+#include "cub3d.h"
 
-int		check_map_w(char **line)
+int			check_map_w(char **line)
 {
 	int		count;
-	int 	i;
+	int		i;
 	int		j;
 
 	count = 0;
@@ -35,7 +34,7 @@ int		check_map_w(char **line)
 	return (count);
 }
 
-int		check_map_h(char **line)
+int			check_map_h(char **line)
 {
 	int		i;
 	int		count;
@@ -50,7 +49,7 @@ int		check_map_h(char **line)
 	return (count);
 }
 
-char	*dup_map(char *map, char *line, int map_w)
+char		*dup_map(char *map, char *line, int map_w)
 {
 	int		i;
 
@@ -69,18 +68,16 @@ char	*dup_map(char *map, char *line, int map_w)
 	return (map);
 }
 
-char	**cut_map(char **line)
+char		**cut_map(char **line)
 {
-	//8부터 사용
 	int		map_w;
 	int		map_h;
 	int		i;
 	int		j;
-	char 	**map;
+	char	**map;
 
 	map_w = check_map_w(line);
 	map_h = check_map_h(line);
-
 	if (!(map = (char **)malloc(sizeof(char *) * (map_h + 1))))
 		return (error());
 	i = 0;

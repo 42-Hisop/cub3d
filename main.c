@@ -6,12 +6,18 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:25:27 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 17:57:30 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 22:46:09 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "cub3d.h"
 #include "mlx/mlx.h"
+
+int		destroy_notify(t_window *window)
+{
+	exit(0);
+	return (0);
+}
 
 char	*param_main(int argc, char **argv)
 {
@@ -25,15 +31,15 @@ char	*param_main(int argc, char **argv)
 		i++;
 	if (ft_strcmp(&new[i - 4], ".cub") != 0)
 		error();
-	return (new);	
+	return (new);
 }
 
 int		main(int argc, char **argv)
 {
-	t_window window;
-	t_player p;
-	t_texture t[4];
-	char	*map_name;
+	char		*map_name;
+	t_window	window;
+	t_player	p;
+	t_texture	t[4];
 
 	window.player = &p;
 	window.texture = t;
@@ -44,7 +50,7 @@ int		main(int argc, char **argv)
 	check_map(&window, map_name);
 	free(map_name);
 	mlx_hook(window.win, 2, 0, key_press, &window);
-//	mlx_hook(window.win, 3, 0, key_press, &window);
+	mlx_hook(window.win, 17, 0, destroy_notify, &window);
 	mlx_loop_hook(window.mlx, raycasting, &window);
 	mlx_loop(window.mlx);
 	return (0);

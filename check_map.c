@@ -6,20 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/24 22:00:09 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 21:02:38 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
-#include "includes/split.h"
+#include "cub3d.h"
 
-char	**cut_map(char **line);
-void	map_valid(char **map);
-void	texture_init(t_window *window, t_texture *texture);
-
-t_window *fnc_color(char **line, t_window *window);
-
-int		line_format(char *line, char *str)
+int			line_format(char *line, char *str)
 {
 	int		i;
 
@@ -54,7 +47,7 @@ t_texture	*tex_adr(char **line, t_texture *tex)
 	return (tex);
 }
 
-void	free_line(char **line)
+void		free_line(char **line)
 {
 	int		i;
 
@@ -68,7 +61,7 @@ void	free_line(char **line)
 	free(line);
 }
 
-void	check_map(t_window *window, char *map_name)
+void		check_map(t_window *window, char *map_name)
 {
 	char	**line;
 	int		map_fd;

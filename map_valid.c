@@ -6,11 +6,11 @@
 /*   By: khee-seo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 19:14:23 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/16 18:48:40 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 20:34:29 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "cub3d.h"
 
 int		validinwall(char c)
 {
@@ -25,7 +25,7 @@ int		wallcheck_w(char **map)
 	int		j;
 	int		flag;
 
-	i = 0;	
+	i = 0;
 	while (map[i])
 	{
 		flag = 0;
@@ -36,7 +36,8 @@ int		wallcheck_w(char **map)
 				flag = 1;
 			if (validinwall(map[i][j]) && flag == 0)
 				return (1);
-			if (validinwall(map[i][j]) && (map[i][j - 1] == ' ' || map[i][j + 1] == ' '))
+			if (validinwall(map[i][j]) &&
+					(map[i][j - 1] == ' ' || map[i][j + 1] == ' '))
 				return (1);
 			j++;
 		}
@@ -61,7 +62,8 @@ int		wallcheck_h(char **map)
 				flag = 1;
 			if (validinwall(map[j][i]) && flag == 0)
 				return (1);
-			if (validinwall(map[j][i]) && (map[j][i - 1] == ' ' || map[j][i + 1] == ' '))
+			if (validinwall(map[j][i]) &&
+					(map[j][i - 1] == ' ' || map[j][i + 1] == ' '))
 				return (1);
 			j++;
 		}

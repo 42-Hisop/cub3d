@@ -6,12 +6,11 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:42:46 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/20 21:16:52 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 20:19:58 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
-#include "mlx/mlx.h"
+#include "cub3d.h"
 
 void	check_step(t_player *player, t_ray *ray)
 {

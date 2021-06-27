@@ -1,7 +1,16 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <limits.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/27 21:39:33 by khee-seo          #+#    #+#             */
+/*   Updated: 2021/06/27 21:47:41 by khee-seo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
 
 void	*error(void)
 {
@@ -11,8 +20,8 @@ void	*error(void)
 
 int		ft_atoi(char *s)
 {
-	unsigned long long		num;	
-	int		i;
+	unsigned long long		num;
+	int						i;
 
 	i = 0;
 	num = 0;
@@ -25,7 +34,7 @@ int		ft_atoi(char *s)
 	}
 	if (num < 0)
 		error();
-	if (num > INT_MAX)
+	if (num > 2147483647)
 		error();
 	return (num);
 }

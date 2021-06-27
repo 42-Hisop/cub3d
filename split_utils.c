@@ -1,6 +1,18 @@
-#include "includes/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/27 20:15:40 by khee-seo          #+#    #+#             */
+/*   Updated: 2021/06/27 20:57:51 by khee-seo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		ft_strlen(char const *s)
+#include "cub3d.h"
+
+int			ft_strlen(char const *s)
 {
 	int		len;
 
@@ -10,7 +22,7 @@ int		ft_strlen(char const *s)
 	return (len);
 }
 
-char	*ft_strdup(char *src)
+char		*ft_strdup(char *src)
 {
 	char	*cpy;
 	int		i;
@@ -30,7 +42,7 @@ char	*ft_strdup(char *src)
 	return (cpy);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -59,7 +71,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
-int		ft_strstr(char *rd, char c)
+int			ft_strstr(char *rd, char c)
 {
 	int		i;
 	int		count;

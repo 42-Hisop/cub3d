@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fnc.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/27 20:04:04 by khee-seo          #+#    #+#             */
+/*   Updated: 2021/06/27 20:31:04 by khee-seo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "includes/cub3d.h"
-#include "includes/split.h"
+#include "cub3d.h"
 
 void		fnc_allocate(char **f, char **c, t_window *window)
 {
@@ -34,11 +44,10 @@ t_window	*fnc_color(char **line, t_window *window)
 		return (error());
 	if (line_format(line[6], "C "))
 		return (error());
-	f = ft_split(ft_strdup(&line[5][2]), ',');
-	c = ft_split(ft_strdup(&line[6][2]), ',');
+	f = ft_split(ft_strdup(&line[5][2]), ',', 0, 0);
+	c = ft_split(ft_strdup(&line[6][2]), ',', 0, 0);
 	fnc_allocate(f, c, window);
 	free_line(f);
 	free_line(c);
-
 	return (window);
 }

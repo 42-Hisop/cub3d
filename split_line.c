@@ -1,9 +1,20 @@
-#include "includes/cub3d.h"
-#include "includes/split.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split_line.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/27 20:14:58 by khee-seo          #+#    #+#             */
+/*   Updated: 2021/06/27 20:59:13 by khee-seo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char 	*check_m(char *rd, int rd_i, char *backup, char c)
+#include "cub3d.h"
+
+char		*check_m(char *rd, int rd_i, char *backup, char c)
 {
-	int count;
+	int		count;
 
 	count = 1;
 	while (rd[rd_i] && rd[rd_i] != c)
@@ -16,12 +27,12 @@ char 	*check_m(char *rd, int rd_i, char *backup, char c)
 	return (backup);
 }
 
-char	**ft_split(char *rd, char c, int i, int rd_i)
+char		**ft_split(char *rd, char c, int i, int rd_i)
 {
 	int		j;
 	char	**backup;
 
-	if(!(backup = (char **)malloc(sizeof(char *) * (ft_strstr(rd, c) + 1))))
+	if (!(backup = (char **)malloc(sizeof(char *) * (ft_strstr(rd, c) + 1))))
 		return (0);
 	while (i < ft_strstr(rd, c))
 	{
@@ -43,7 +54,7 @@ char	**ft_split(char *rd, char c, int i, int rd_i)
 	return (backup);
 }
 
-char	*save(char *rd, char *buf)
+char		*save(char *rd, char *buf)
 {
 	char	*temp;
 
@@ -58,7 +69,7 @@ char	*save(char *rd, char *buf)
 	return (rd);
 }
 
-char 	**split_line(int fd)
+char		**split_line(int fd)
 {
 	char	buf[2];
 	char	*rd;

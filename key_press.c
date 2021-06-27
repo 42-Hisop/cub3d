@@ -6,11 +6,11 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 04:33:24 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/20 21:23:17 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 21:52:27 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "cub3d.h"
 
 void	move_forward(t_player *player)
 {
@@ -32,7 +32,7 @@ void	move_left(t_player *player)
 
 	temp_x = player->dir_x;
 	temp_y = player->dir_y;
-	seta =  (M_PI / 180) * 90;
+	seta = (M_PI / 180) * 90;
 	player->pos_x += (temp_x * cos(-seta) - temp_y * sin(-seta)) * 0.2;
 	player->pos_y += (temp_x * sin(-seta) + temp_y * cos(-seta)) * 0.2;
 }
@@ -45,7 +45,7 @@ void	move_right(t_player *player)
 
 	temp_x = player->dir_x;
 	temp_y = player->dir_y;
-	seta =  (M_PI / 180) * 90;
+	seta = (M_PI / 180) * 90;
 	player->pos_x += (temp_x * cos(seta) - temp_y * sin(seta)) * 0.2;
 	player->pos_y += (temp_x * sin(seta) + temp_y * cos(seta)) * 0.2;
 }
