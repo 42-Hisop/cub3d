@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:25:27 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/24 21:58:18 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/27 17:57:30 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		main(int argc, char **argv)
 			SCREEN_H, "cub3D");
 	map_name = param_main(argc, argv);
 	check_map(&window, map_name);
+	free(map_name);
 	mlx_hook(window.win, 2, 0, key_press, &window);
 //	mlx_hook(window.win, 3, 0, key_press, &window);
 	mlx_loop_hook(window.mlx, raycasting, &window);

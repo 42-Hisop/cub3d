@@ -12,21 +12,17 @@ char 	*check_m(char *rd, int rd_i, char *backup, char c)
 		count++;
 	}
 	if (!(backup = (char *)malloc(sizeof(char) * count + 1)))
-		return (0);
+		error();
 	return (backup);
 }
 
-char	**ft_split(char *rd, char c)
+char	**ft_split(char *rd, char c, int i, int rd_i)
 {
-	int 	i;
 	int		j;
-	int		rd_i;
 	char	**backup;
 
 	if(!(backup = (char **)malloc(sizeof(char *) * (ft_strstr(rd, c) + 1))))
 		return (0);
-	i = 0;
-	rd_i = 0;
 	while (i < ft_strstr(rd, c))
 	{
 		j = 0;
@@ -77,6 +73,6 @@ char 	**split_line(int fd)
 		buf[1] = '\0';
 		rd = save(rd, buf);
 	}
-	backup = ft_split(rd, '\n');
+	backup = ft_split(rd, '\n', 0, 0);
 	return (backup);
 }
