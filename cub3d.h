@@ -6,14 +6,14 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 22:44:01 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/29 22:27:40 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-# define SCREEN_W 800
-# define SCREEN_H 600
+# define SCREEN_W 1600
+# define SCREEN_H 1200
 
 # include <stdio.h>
 # include <unistd.h>
@@ -81,40 +81,70 @@ typedef struct		s_window
 	char			**map;
 }					t_window;
 
-void				check_map(t_window *window, char *map_name);
+int					destroy_notify(t_window *window);
+char				*param_main(int argc, char **argv);
+
+void				fnc_allocate(char **f, char **c, t_window *window);
+t_window			*fnc_color(char **line, t_window *window);
+
+int					check_map_w(char **line);
+int					check_map_h(char **line);
+char				*dup_map(char *map, char *line, int map_w);
+char				**cut_map(char **line);
+
+int					validinwall(char c);
+int					wallcheck_w(char **map);
+int					wallcheck_h(char **map);
+int					validcheck(char **map);
+void				map_valid(char **map);
+
+void				vector_init2(char c, t_player *player);
+void				vector_init(char c, t_player *player);
 void				player_init(char **map, t_player *player);
-int					raycasting(t_window *window);
-void				*error(void);
-int					ft_atoi(char *s);
-void				make_hex(char *hex);
-char				*ft_itoh(int num, char *rgb, int i);
-int					itorgb(int r, int g, int b);
-t_texture			*tex_adr(char **line, t_texture *tex);
-int					line_format(char *line, char *str);
-void				free_line(char **line);
-void				cast(t_window *window, t_ray *ray);
-void				cast2(t_window *window, t_ray *ray);
-void				dir_camera_set(t_player *player, t_ray *ray, int x);
-void				dist(t_player *player, t_ray *ray);
-void				draw(t_window *window, t_texture *texture,
-		t_ray *ray, int x);
-int					key_press(int key, t_window *window);
-void				turn_left(t_player *player);
-void				turn_right(t_player *player);
-int					ft_strcmp(char *s1, char *s2);
 
 int					ft_strlen(char const *s);
 char				*ft_strdup(char *src);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_strstr(char *rd, char c);
+
 char				*check_m(char *rd, int rd_i, char *backup, char c);
 char				**ft_split(char *rd, char c, int i, int rd_i);
 char				*save(char *rd, char *buf);
 char				**split_line(int fd);
 
-char				**cut_map(char **line);
-void				map_valid(char **map);
-void				texture_init(t_window *window, t_texture *texture);
-t_window			*fnc_color(char **line, t_window *window);
+int					line_format(char *line, char *str);
+t_texture			*tex_adr(char **line, t_texture *tex);
+void				free_line(char **line);
+void				check_map(t_window *window, char *map_name);
 
+void				texture_init(t_window *window, t_texture *texture);
+
+void				check_step(t_player *player, t_ray *ray);
+void				sum_ray(t_ray *ray);
+void				cast(t_window *window, t_ray *ray);
+int					raycasting(t_window *window);
+
+void				dist(t_player *player, t_ray *ray);
+void				dir_camera_set(t_player *player, t_ray *ray, int x);
+
+void				*error(void);
+int					ft_atoi(char *s);
+int					itorgb(int r, int g, int b);
+int					ft_strcmp(char *s1, char *s2);
+
+void				find_which_wall(t_ray *ray);
+void				draw_fnc(t_window *window, int x);
+void				draw_texture(t_window *window, t_texture *texture,
+		t_ray *ray, int *st_end);
+void				draw(t_window *window, t_texture *texture,
+		t_ray *ray, int x);
+
+void				move_forward(t_player *player);
+void				move_backward(t_player *player);
+void				move_left(t_player *player);
+void				move_right(t_player *player);
+int					key_press(int key, t_window *window);
+
+void				turn_left(t_player *player);
+void				turn_right(t_player *player);
 #endif

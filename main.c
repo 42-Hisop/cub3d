@@ -6,12 +6,11 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:25:27 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 22:46:09 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/29 21:46:41 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "mlx/mlx.h"
 
 int		destroy_notify(t_window *window)
 {

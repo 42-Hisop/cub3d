@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 04:33:24 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 21:52:27 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/29 22:25:49 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ int		key_press(int key, t_window *window)
 	if (key == 124)
 		turn_right(window->player);
 	if (key == 53)
-		exit(1);
+		exit(0);
 	return (0);
 }
