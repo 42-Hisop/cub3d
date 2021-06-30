@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:53:21 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 20:54:19 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/30 19:18:42 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void		player_init(char **map, t_player *player)
 		}
 		i++;
 	}
-	error();
+	error("player init error");
 }

@@ -6,20 +6,20 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 20:32:59 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/30 20:23:29 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			check_map_w(char **line)
+int			check_map_w(char **line, t_window *window)
 {
 	int		count;
 	int		i;
 	int		j;
 
 	count = 0;
-	i = 0;
+	i = window->line_n;
 	while (line[i])
 	{
 		j = 0;
@@ -34,12 +34,12 @@ int			check_map_w(char **line)
 	return (count);
 }
 
-int			check_map_h(char **line)
+int			check_map_h(char **line, t_window *window)
 {
 	int		i;
 	int		count;
 
-	i = 8;
+	i = window->line_n;
 	count = 0;
 	while (line[i])
 	{
@@ -68,27 +68,25 @@ char		*dup_map(char *map, char *line, int map_w)
 	return (map);
 }
 
-char		**cut_map(char **line)
+char		**cut_map(char **line, t_window *window)
 {
 	int		map_w;
 	int		map_h;
 	int		i;
-	int		j;
 	char	**map;
 
-	map_w = check_map_w(line);
-	map_h = check_map_h(line);
+	map_w = check_map_w(line, window);
+	map_h = check_map_h(line, window);
 	if (!(map = (char **)malloc(sizeof(char *) * (map_h + 1))))
-		return (error());
+		error("map malloc error");
 	i = 0;
-	j = 8;
 	while (i < map_h)
 	{
 		if (!(map[i] = (char *)malloc(sizeof(char) * (map_w + 1))))
-			return (error());
-		map[i] = dup_map(map[i], line[j], map_w);
+			error("map malloc error");
+		map[i] = dup_map(map[i], line[window->line_n], map_w);
 		i++;
-		j++;
+		window->line_n++;
 	}
 	map[i] = NULL;
 	return (map);

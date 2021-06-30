@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:15:40 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 20:57:51 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/30 18:38:54 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_strdup(char *src)
 	while (src[i])
 		i++;
 	if (!(cpy = (char *)malloc(sizeof(char) * (i + 1))))
-		return (0);
+		error("strdup malloc error");
 	i = 0;
 	while (src[i])
 	{
@@ -53,7 +53,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	if (!(new = (char *)malloc(sizeof(char) * len)))
-		return (0);
+		error("strjoin malloc error");
 	i = 0;
 	while (s1[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/27 21:02:38 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/30 21:33:26 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,45 +20,36 @@ int			line_format(char *line, char *str)
 	while (str[i])
 	{
 		if (line[i] != str[i])
-			return (1);
+			return (0);
 		i++;
 	}
+	return (1);
+}
+
+int			tex_adr_allocate(char **line, t_texture *tex,
+		t_window *window, int i)
+{
+	tex[i].adr = ft_strdup(&line[window->line_n][3]);
 	return (0);
 }
 
-t_texture	*tex_adr(char **line, t_texture *tex)
+t_texture	*tex_adr(char **line, t_texture *tex, t_window *window)
 {
-	int		i;
+	int		flag[4];
 
-	if (line_format(line[0], "NO "))
-		return (error());
-	if (line_format(line[1], "SO "))
-		return (error());
-	if (line_format(line[2], "WE "))
-		return (error());
-	if (line_format(line[3], "EA "))
-		return (error());
-	i = 0;
-	while (i < 4)
+	while (flag[0] || flag[1] || flag[2] || flag[3])
 	{
-		tex[i].adr = ft_strdup(&line[i][3]);
-		i++;
+		if (line_format(line[window->line_n], "NO "))
+			flag[0] = tex_adr_allocate(line, tex, window, 0);
+		if (line_format(line[window->line_n], "SO "))
+			flag[1] = tex_adr_allocate(line, tex, window, 1);
+		if (line_format(line[window->line_n], "WE "))
+			flag[2] = tex_adr_allocate(line, tex, window, 2);
+		if (line_format(line[window->line_n], "EA "))
+			flag[3] = tex_adr_allocate(line, tex, window, 3);
+		window->line_n++;
 	}
 	return (tex);
-}
-
-void		free_line(char **line)
-{
-	int		i;
-
-	i = 0;
-	while (line[i])
-	{
-		free(line[i]);
-		i++;
-	}
-	free(line[i]);
-	free(line);
 }
 
 void		check_map(t_window *window, char *map_name)
@@ -66,14 +57,16 @@ void		check_map(t_window *window, char *map_name)
 	char	**line;
 	int		map_fd;
 
+	window->line_n = 0;
 	map_fd = open(map_name, O_RDONLY);
 	if (map_fd == -1)
-		error();
+		error("file open error");
 	line = split_line(map_fd);
 	close(map_fd);
-	tex_adr(line, window->texture);
+	tex_adr(line, window->texture, window);
 	fnc_color(line, window);
-	window->map = cut_map(line);
+	skip_space_after_map(line, window);
+	window->map = cut_map(line, window);
 	map_valid(window->map);
 	free_line(line);
 	player_init(window->map, window->player);

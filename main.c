@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:25:27 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/29 21:46:41 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/30 19:14:36 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ char	*param_main(int argc, char **argv)
 	char	*new;
 
 	if (argc != 2)
-		error();
+		error("argc num not 2");
 	new = ft_strdup(argv[1]);
 	while (new[i])
 		i++;
 	if (ft_strcmp(&new[i - 4], ".cub") != 0)
-		error();
+		error("other extension");
 	return (new);
 }
 

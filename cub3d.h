@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/29 22:27:40 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/06/30 20:52:09 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define SCREEN_W 1600
 # define SCREEN_H 1200
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
@@ -79,18 +78,20 @@ typedef struct		s_window
 	t_player		*player;
 	t_texture		*texture;
 	char			**map;
+	int				line_n;
 }					t_window;
 
 int					destroy_notify(t_window *window);
 char				*param_main(int argc, char **argv);
 
+void				skip_space_after_map(char **line, t_window *window);
 void				fnc_allocate(char **f, char **c, t_window *window);
 t_window			*fnc_color(char **line, t_window *window);
 
-int					check_map_w(char **line);
-int					check_map_h(char **line);
+int					check_map_w(char **line, t_window *window);
+int					check_map_h(char **line, t_window *window);
 char				*dup_map(char *map, char *line, int map_w);
-char				**cut_map(char **line);
+char				**cut_map(char **line, t_window *window);
 
 int					validinwall(char c);
 int					wallcheck_w(char **map);
@@ -113,8 +114,8 @@ char				*save(char *rd, char *buf);
 char				**split_line(int fd);
 
 int					line_format(char *line, char *str);
-t_texture			*tex_adr(char **line, t_texture *tex);
-void				free_line(char **line);
+int					tex_adr_allocate(char **line, t_texture *tex, t_window *window, int i);
+t_texture			*tex_adr(char **line, t_texture *tex, t_window *window);
 void				check_map(t_window *window, char *map_name);
 
 void				texture_init(t_window *window, t_texture *texture);
@@ -127,10 +128,11 @@ int					raycasting(t_window *window);
 void				dist(t_player *player, t_ray *ray);
 void				dir_camera_set(t_player *player, t_ray *ray, int x);
 
-void				*error(void);
+void				*error(char *str);
 int					ft_atoi(char *s);
 int					itorgb(int r, int g, int b);
 int					ft_strcmp(char *s1, char *s2);
+void				free_line(char **line);
 
 void				find_which_wall(t_ray *ray);
 void				draw_fnc(t_window *window, int x);
