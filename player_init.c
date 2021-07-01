@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:53:21 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 16:12:23 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:26:35 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ void		player_init(char **map, t_player *player, int count)
 			if (map[i][j] == 'E' || map[i][j] == 'W' ||
 					map[i][j] == 'S' || map[i][j] == 'N')
 			{
-				if (count >= 1)
-					error("multiple player locations");
 				player->pos_x = j;
 				player->pos_y = i;
 				vector_init(map[i][j], player);
@@ -79,6 +77,8 @@ void		player_init(char **map, t_player *player, int count)
 		}
 		i++;
 	}
+	if (2 <= count)
+		error("multiple player locations");
 	if (count == 0)
 		error("player location not found");
 }

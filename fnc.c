@@ -6,11 +6,26 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:04:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 16:01:37 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:40:19 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void		check_fnc_element(char **f, char **c)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (f[i])
+		i++;
+	while (c[j])
+		j++;
+	if (i != 3 || j != 3)
+		error("F,C element not 3");
+}
 
 int			map_is_last(char *str)
 {
@@ -32,6 +47,7 @@ void		fnc_allocate(char **f, char **c, t_window *window)
 	int		j;
 
 	i = 0;
+	check_fnc_element(f, c);
 	while (i < 3)
 	{
 		num[i] = ft_atoi(f[i]);
