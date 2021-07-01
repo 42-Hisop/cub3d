@@ -6,11 +6,18 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:04:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 21:32:00 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:01:37 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int			map_is_last(char *str)
+{
+	if (str[0] == '0' || str[0] == '1' || str[0] == ' ')
+		return (1);
+	return (0);
+}
 
 void		skip_space_after_map(char **line, t_window *window)
 {
@@ -39,6 +46,8 @@ void		fnc_allocate(char **f, char **c, t_window *window)
 	}
 	window->f_color = itorgb(num[0], num[1], num[2]);
 	window->c_color = itorgb(num[3], num[4], num[5]);
+	free_line(f);
+	free_line(c);
 }
 
 t_window	*fnc_color(char **line, t_window *window)
@@ -61,10 +70,10 @@ t_window	*fnc_color(char **line, t_window *window)
 			c = ft_split(ft_strdup(&line[window->line_n][2]), ',', 0, 0);
 			flag[1] = 0;
 		}
+		if (map_is_last(line[window->line_n]))
+			error("fnc data error");
 		window->line_n++;
 	}
 	fnc_allocate(f, c, window);
-	free_line(f);
-	free_line(c);
 	return (window);
 }

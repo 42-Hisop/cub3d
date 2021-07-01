@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 20:52:09 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:06:56 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct		s_window
 int					destroy_notify(t_window *window);
 char				*param_main(int argc, char **argv);
 
+int					map_is_last(char *str);
 void				skip_space_after_map(char **line, t_window *window);
 void				fnc_allocate(char **f, char **c, t_window *window);
 t_window			*fnc_color(char **line, t_window *window);
@@ -101,7 +102,7 @@ void				map_valid(char **map);
 
 void				vector_init2(char c, t_player *player);
 void				vector_init(char c, t_player *player);
-void				player_init(char **map, t_player *player);
+void				player_init(char **map, t_player *player, int count);
 
 int					ft_strlen(char const *s);
 char				*ft_strdup(char *src);

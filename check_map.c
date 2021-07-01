@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 21:33:26 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:06:40 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ t_texture	*tex_adr(char **line, t_texture *tex, t_window *window)
 			flag[2] = tex_adr_allocate(line, tex, window, 2);
 		if (line_format(line[window->line_n], "EA "))
 			flag[3] = tex_adr_allocate(line, tex, window, 3);
+		if (line_format(line[window->line_n], "F ") ||
+				line_format(line[window->line_n], "C "))
+			error("wall texture adr error");
+		if (map_is_last(line[window->line_n]))
+			error("map data is written first");
 		window->line_n++;
 	}
 	return (tex);
@@ -69,6 +74,6 @@ void		check_map(t_window *window, char *map_name)
 	window->map = cut_map(line, window);
 	map_valid(window->map);
 	free_line(line);
-	player_init(window->map, window->player);
+	player_init(window->map, window->player, 0);
 	texture_init(window, window->texture);
 }
