@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 20:23:29 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:53:08 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,22 @@ char		*dup_map(char *map, char *line, int map_w)
 	return (map);
 }
 
+char		*make_empty_line(char *map, int map_w)
+{
+	int		i;
+
+	if (!(map = (char *)malloc(sizeof(char) * (map_w + 1))))
+		error("map malloc error");
+	i = 0;
+	while (i < map_w)
+	{
+		map[i] = '\0';
+		i++;
+	}
+	map[i] = '\0';
+	return (map);
+}
+
 char		**cut_map(char **line, t_window *window)
 {
 	int		map_w;
@@ -77,7 +93,7 @@ char		**cut_map(char **line, t_window *window)
 
 	map_w = check_map_w(line, window);
 	map_h = check_map_h(line, window);
-	if (!(map = (char **)malloc(sizeof(char *) * (map_h + 1))))
+	if (!(map = (char **)malloc(sizeof(char *) * (map_h + 2))))
 		error("map malloc error");
 	i = 0;
 	while (i < map_h)
@@ -88,6 +104,7 @@ char		**cut_map(char **line, t_window *window)
 		i++;
 		window->line_n++;
 	}
-	map[i] = NULL;
+	map[i] = make_empty_line(map[i], map_w);
+	map[i + 1] = NULL;
 	return (map);
 }

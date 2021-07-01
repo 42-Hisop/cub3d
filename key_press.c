@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 04:33:24 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/29 22:25:49 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:57:31 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	move_forward(t_player *player)
 {
-	player->pos_x += player->dir_x * 0.2;
-	player->pos_y += player->dir_y * 0.2;
+	player->pos_x += player->dir_x * 0.05;
+	player->pos_y += player->dir_y * 0.05;
 }
 
 void	move_backward(t_player *player)
