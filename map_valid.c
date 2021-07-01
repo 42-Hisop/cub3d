@@ -6,7 +6,7 @@
 /*   By: khee-seo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 19:14:23 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 15:01:55 by khee-seo         ###   ########.fr       */
+/*   Updated: 2021/07/01 18:33:44 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		wallcheck_w(char **map)
 				return (1);
 			if (validinwall(map[i][j]) &&
 					(map[i][j - 1] == ' ' || map[i][j + 1] == ' ' ||
-					map[i][j - 1] == '\0' || map[i][j + 1] == '\0'))
+					map[i][j + 1] == '\0'))
 				return (1);
 			j++;
 		}
@@ -66,7 +66,7 @@ int		wallcheck_h(char **map)
 				return (1);
 			if (validinwall(map[j][i]) &&
 					(map[j - 1][i] == ' ' || map[j + 1][i] == ' ' ||
-					map[j - 1][i] == '\0' || map[j + 1][i] == '\0'))
+					map[j + 1][i] == '\0'))
 				return (1);
 			j++;
 		}
