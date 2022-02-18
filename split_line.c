@@ -6,12 +6,12 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:14:58 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 19:20:05 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:54:30 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
+/*
 char		*check_m(char *rd, int rd_i, char *backup, char c)
 {
 	int		count;
@@ -53,6 +53,7 @@ char		**ft_split(char *rd, char c, int i, int rd_i)
 	free(rd);
 	return (backup);
 }
+*/
 
 char		*save(char *rd, char *buf)
 {
@@ -84,6 +85,6 @@ char		**split_line(int fd)
 		buf[1] = '\0';
 		rd = save(rd, buf);
 	}
-	backup = ft_split(rd, '\n', 0, 0);
+	backup = ft_split(rd, '\n');
 	return (backup);
 }

@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 14:53:08 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:58:04 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ int			check_map_w(char **line, t_window *window)
 	{
 		j = 0;
 		while (line[i][j])
-		{
-			if (count <= j)
-				count = j;
 			j++;
-		}
+		if (count <= j)
+			count = j;
 		i++;
 	}
 	return (count);
@@ -49,17 +47,17 @@ int			check_map_h(char **line, t_window *window)
 	return (count);
 }
 
-char		*dup_map(char *map, char *line, int map_w)
+char		*dup_map(char *map, char *str, int map_w)
 {
 	int		i;
 
 	i = 0;
-	while (line[i])
+	while (str[i])
 	{
-		map[i] = line[i];
+		map[i] = str[i];
 		i++;
 	}
-	while (i <= map_w)
+	while (i < map_w)
 	{
 		map[i] = ' ';
 		i++;

@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 16:06:40 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:57:44 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		check_map(t_window *window, char *map_name)
 	close(map_fd);
 	tex_adr(line, window->texture, window);
 	fnc_color(line, window);
-	skip_space_after_map(line, window);
+	//skip_space_after_map(line, window);
 	window->map = cut_map(line, window);
 	map_valid(window->map);
 	free_line(line);

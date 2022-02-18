@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 16:43:22 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:20:01 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h> // 나중에 빼
 # include <math.h>
 # include <fcntl.h>
 # include "mlx/mlx.h"
@@ -107,10 +108,11 @@ void				player_init(char **map, t_player *player, int count);
 int					ft_strlen(char const *s);
 char				*ft_strdup(char *src);
 char				*ft_strjoin(char const *s1, char const *s2);
-int					ft_strstr(char *rd, char c);
+unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size);
+//int					ft_strstr(char *rd, char c);
 
-char				*check_m(char *rd, int rd_i, char *backup, char c);
-char				**ft_split(char *rd, char c, int i, int rd_i);
+//char				*check_m(char *rd, int rd_i, char *backup, char c);
+char				**ft_split(char *s, char c);
 char				*save(char *rd, char *buf);
 char				**split_line(int fd);
 

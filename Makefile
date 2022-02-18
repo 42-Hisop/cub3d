@@ -6,7 +6,7 @@
 #    By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/01 20:32:45 by khee-seo          #+#    #+#              #
-#    Updated: 2021/07/01 20:33:24 by khee-seo         ###   ########.fr        #
+#    Updated: 2022/02/17 14:17:34 by khee-seo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS= main.c \
 	  map_valid.c \
 	  player_init.c \
 	  split_line.c \
+	  split.c \
 	  split_utils.c \
 	  check_map.c \
 	  texture_init.c \

@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:04:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 16:40:19 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:12:34 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ t_window	*fnc_color(char **line, t_window *window)
 	{
 		if (line_format(line[window->line_n], "F "))
 		{
-			f = ft_split(ft_strdup(&line[window->line_n][2]), ',', 0, 0);
+			f = ft_split(ft_strdup(&line[window->line_n][2]), ',');
 			flag[0] = 0;
 		}
 		if (line_format(line[window->line_n], "C "))
 		{
-			c = ft_split(ft_strdup(&line[window->line_n][2]), ',', 0, 0);
+			c = ft_split(ft_strdup(&line[window->line_n][2]), ',');
 			flag[1] = 0;
 		}
 		if (map_is_last(line[window->line_n]))

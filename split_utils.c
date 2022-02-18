@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:15:40 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 18:38:54 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:19:25 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,54 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
-int			ft_strstr(char *rd, char c)
+unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 {
-	int		i;
-	int		count;
+	unsigned int	i;
 
+	if (dst == 0 || src == 0)
+		return (0);
 	i = 0;
-	count = 1;
-	while (rd[i])
+	if (size == 0)
 	{
-		if (rd[i] == c)
-			count++;
+		while (src[i])
+			i++;
+		return (i);
+	}
+	i = 0;
+	while (src[i] && i + 1 < size)
+	{
+		dst[i] = src[i];
 		i++;
 	}
-	if (rd[0] == c)
-		count--;
-	if (rd[i - 1] == c)
-		count--;
-	return (count);
+	dst[i] = '\0';
+	while (src[i])
+		i++;
+	return (i);
+}
+
+int	ft_strstr(char const *s, char c)
+{
+	int	i;
+	int result;
+
+	if (!s[0])
+		return (0);
+	i = 0;
+	result = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			result++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue;
+		}
+		i++;
+	}
+	if (s[i - 1] != c)
+		result++;
+	return (result);
 }

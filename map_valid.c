@@ -6,7 +6,7 @@
 /*   By: khee-seo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 19:14:23 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 18:33:44 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:32:37 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ int		validcheck(char **map)
 void	map_valid(char **map)
 {
 	if (validcheck(map))
-		error("map error");
+		error("map valid error");
 	if (wallcheck_w(map))
-		error("map error");
+		error("map w error");
 	if (wallcheck_h(map))
-		error("map error");
+		error("map h error");
 	return ;
 }
