@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/20 12:24:37 by khee-seo          #+#    #+#             */
+/*   Updated: 2022/02/20 12:24:55 by khee-seo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 char	**ft_free_all(char **result)
@@ -70,9 +82,9 @@ char	**ft_split(char *s, char c)
 {
 	char	**result;
 	char	*temp_str;
-	int	temp_len;
-	int	num_strs;
-	int	i;
+	int		temp_len;
+	int		num_strs;
+	int		i;
 
 	ft_spinit(&i, &temp_len);
 	num_strs = ft_num_strs(s, c);

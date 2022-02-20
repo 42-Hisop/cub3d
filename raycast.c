@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:42:46 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/29 20:37:01 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:15:03 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	cast(t_window *window, t_ray *ray)
 	}
 }
 
-int		raycasting(t_window *window)
+int	raycasting(t_window *window)
 {
-	t_ray ray;
+	t_ray	ray;
 
 	window->screen = mlx_new_image(window->mlx, SCREEN_W, SCREEN_H);
 	window->screen_data = (unsigned int *)mlx_get_data_addr(window->screen,

@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/20 11:29:57 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:12:40 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			line_format(char *line, char *str)
+int	line_format(char *line, char *str)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ int			line_format(char *line, char *str)
 	return (1);
 }
 
-int			tex_adr_allocate(char **line, t_texture *tex,
+int	tex_adr_allocate(char **line, t_texture *tex,
 		t_window *window, int i)
 {
 	tex[i].adr = ft_strdup(&line[window->line_n][3]);
@@ -75,7 +75,7 @@ void	tex_adr(char **line, t_texture *tex, t_window *window)
 	}
 }
 
-void		check_map(t_window *window, char *map_name)
+void	check_map(t_window *window, char *map_name)
 {
 	char	**line;
 	int		map_fd;
@@ -87,7 +87,6 @@ void		check_map(t_window *window, char *map_name)
 	line = split_line(map_fd);
 	close(map_fd);
 	tex_adr(line, window->texture, window);
-//	fnc_color(line, window);
 	window->map = map_cut(line, window);
 	map_valid(window->map);
 	free_line(line);

@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:04:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/19 13:59:31 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:13:36 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		check_fnc_element(char **f, char **c)
+void	check_fnc_element(char **f, char **c)
 {
 	int		i;
 	int		j;
@@ -27,7 +27,7 @@ void		check_fnc_element(char **f, char **c)
 		error("F,C element not 3");
 }
 
-int			map_is_last(char *str)
+int	map_is_last(char *str)
 {
 	if (str == NULL)
 		return (1);
@@ -36,7 +36,7 @@ int			map_is_last(char *str)
 	return (0);
 }
 
-void		fnc_allocate(char **f, char **c, t_window *window)
+void	fnc_allocate(char **f, char **c, t_window *window)
 {
 	int		num[6];
 	int		i;

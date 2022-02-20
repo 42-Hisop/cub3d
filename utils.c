@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 21:39:33 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 21:33:52 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:14:00 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*error(char *str)
 	exit(1);
 }
 
-int		ft_atoi(char *s)
+int	ft_atoi(char *s)
 {
 	unsigned long long		num;
 	int						i;
@@ -47,7 +47,7 @@ int		ft_atoi(char *s)
 	return (num);
 }
 
-int		itorgb(int r, int g, int b)
+int	itorgb(int r, int g, int b)
 {
 	int		num;
 
@@ -60,7 +60,7 @@ int		itorgb(int r, int g, int b)
 	return (num);
 }
 
-int		ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int		i;
 

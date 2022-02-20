@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:53:21 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/07/01 16:26:35 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:10:56 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		vector_init2(char c, t_player *player)
+void	vector_init2(char c, t_player *player)
 {
 	if (c == 'S' || c == 'N')
 	{
@@ -32,7 +32,7 @@ void		vector_init2(char c, t_player *player)
 	}
 }
 
-void		vector_init(char c, t_player *player)
+void	vector_init(char c, t_player *player)
 {
 	if (c == 'E' || c == 'W')
 	{
@@ -54,7 +54,7 @@ void		vector_init(char c, t_player *player)
 		vector_init2(c, player);
 }
 
-void		player_init(char **map, t_player *player, int count)
+void	player_init(char **map, t_player *player, int count)
 {
 	int		i;
 	int		j;

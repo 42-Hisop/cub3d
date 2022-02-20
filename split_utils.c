@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:15:40 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:19:25 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:22:37 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			ft_strlen(char const *s)
+int	ft_strlen(char const *s)
 {
 	int		len;
 
@@ -22,7 +22,7 @@ int			ft_strlen(char const *s)
 	return (len);
 }
 
-char		*ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
 	char	*cpy;
 	int		i;
@@ -42,7 +42,7 @@ char		*ft_strdup(char *src)
 	return (cpy);
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -99,7 +99,7 @@ unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)
 int	ft_strstr(char const *s, char c)
 {
 	int	i;
-	int result;
+	int	result;
 
 	if (!s[0])
 		return (0);
@@ -114,7 +114,7 @@ int	ft_strstr(char const *s, char c)
 			result++;
 			while (s[i] && s[i] == c)
 				i++;
-			continue;
+			continue ;
 		}
 		i++;
 	}

@@ -6,20 +6,20 @@
 /*   By: khee-seo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 19:14:23 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:32:37 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:19:52 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		validinwall(char c)
+int	validinwall(char c)
 {
 	if (c == '0' || c == 'E' || c == 'W' || c == 'S' || c == 'N')
 		return (1);
 	return (0);
 }
 
-int		wallcheck_w(char **map)
+int	wallcheck_w(char **map)
 {
 	int		i;
 	int		j;
@@ -47,7 +47,7 @@ int		wallcheck_w(char **map)
 	return (0);
 }
 
-int		wallcheck_h(char **map)
+int	wallcheck_h(char **map)
 {
 	int		i;
 	int		j;
@@ -76,7 +76,7 @@ int		wallcheck_h(char **map)
 	return (0);
 }
 
-int		validcheck(char **map)
+int	validcheck(char **map)
 {
 	int		i;
 	int		j;

@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/19 13:39:07 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:17:30 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			check_map_w(char **line, t_window *window)
+int	check_map_w(char **line, t_window *window)
 {
 	int		count;
 	int		i;
@@ -32,7 +32,7 @@ int			check_map_w(char **line, t_window *window)
 	return (count);
 }
 
-int			check_map_h(char **line, t_window *window)
+int	check_map_h(char **line, t_window *window)
 {
 	int		i;
 	int		count;
@@ -47,7 +47,7 @@ int			check_map_h(char **line, t_window *window)
 	return (count);
 }
 
-char		*dup_map(char *map, char *str, int map_w)
+char	*dup_map(char *map, char *str, int map_w)
 {
 	int		i;
 
@@ -66,7 +66,7 @@ char		*dup_map(char *map, char *str, int map_w)
 	return (map);
 }
 
-char		*make_empty_line(char *map, int map_w)
+char	*make_empty_line(char *map, int map_w)
 {
 	int		i;
 
@@ -82,7 +82,7 @@ char		*make_empty_line(char *map, int map_w)
 	return (map);
 }
 
-char		**map_cut(char **line, t_window *window)
+char	**map_cut(char **line, t_window *window)
 {
 	int		map_w;
 	int		map_h;

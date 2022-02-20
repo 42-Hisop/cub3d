@@ -6,13 +6,13 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:25:27 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/19 12:40:18 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:16:46 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		destroy_notify(t_window *window)
+int	destroy_notify(t_window *window)
 {
 	if (window->map)
 		ft_free_all(window->map);
@@ -34,7 +34,7 @@ char	*param_main(int argc, char **argv)
 	return (new);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char		*map_name;
 	t_window	window;

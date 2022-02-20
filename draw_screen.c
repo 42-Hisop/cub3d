@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 21:17:24 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/29 21:01:05 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:13:07 by joupark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	draw_texture(t_window *window, t_texture *texture,
 	while (st_end[0] < st_end[1])
 	{
 		tex_y = temp_y;
-		window->screen_data[(window->size_line / 4) * st_end[0] + st_end[2]] =
-			texture[ray->nswe].img_data[(texture[ray->nswe].size_line / 4)
+		window->screen_data[(window->size_line / 4) * st_end[0] + st_end[2]]
+			= texture[ray->nswe].img_data[(texture[ray->nswe].size_line / 4)
 			* tex_y + ray->tex_x];
 		st_end[0]++;
 		temp_y += step;
