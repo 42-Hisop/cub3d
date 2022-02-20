@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:20:01 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:40:11 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_window			*fnc_color(char **line, t_window *window);
 int					check_map_w(char **line, t_window *window);
 int					check_map_h(char **line, t_window *window);
 char				*dup_map(char *map, char *line, int map_w);
-char				**cut_map(char **line, t_window *window);
+char				**map_cut(char **line, t_window *window);
 
 int					validinwall(char c);
 int					wallcheck_w(char **map);
@@ -145,12 +145,14 @@ void				draw_texture(t_window *window, t_texture *texture,
 void				draw(t_window *window, t_texture *texture,
 		t_ray *ray, int x);
 
-void				move_forward(t_player *player);
-void				move_backward(t_player *player);
-void				move_left(t_player *player);
-void				move_right(t_player *player);
+void				move_forward(t_player *player, char **map);
+void				move_backward(t_player *player, char **map);
+void				move_left(t_player *player, char **map);
+void				move_right(t_player *player, char **map);
 int					key_press(int key, t_window *window);
 
 void				turn_left(t_player *player);
 void				turn_right(t_player *player);
+
+char 				**ft_free_all(char **result);
 #endif

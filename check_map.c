@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:57:44 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/19 14:01:28 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ t_texture	*tex_adr(char **line, t_texture *tex, t_window *window)
 
 	while (flag[0] || flag[1] || flag[2] || flag[3])
 	{
+		if (map_is_last(line[window->line_n]))
+			error("map data is written first");
 		if (line_format(line[window->line_n], "NO "))
 			flag[0] = tex_adr_allocate(line, tex, window, 0);
 		if (line_format(line[window->line_n], "SO "))
@@ -50,8 +52,6 @@ t_texture	*tex_adr(char **line, t_texture *tex, t_window *window)
 		if (line_format(line[window->line_n], "F ") ||
 				line_format(line[window->line_n], "C "))
 			error("wall texture adr error");
-		if (map_is_last(line[window->line_n]))
-			error("map data is written first");
 		window->line_n++;
 	}
 	return (tex);
@@ -70,8 +70,7 @@ void		check_map(t_window *window, char *map_name)
 	close(map_fd);
 	tex_adr(line, window->texture, window);
 	fnc_color(line, window);
-	//skip_space_after_map(line, window);
-	window->map = cut_map(line, window);
+	window->map = map_cut(line, window);
 	map_valid(window->map);
 	free_line(line);
 	player_init(window->map, window->player, 0);

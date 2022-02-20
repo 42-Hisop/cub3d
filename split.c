@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static	char	**ft_free_all(char **result)
+char	**ft_free_all(char **result)
 {
 	size_t	i;
 

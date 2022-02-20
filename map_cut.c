@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:58:04 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:39:07 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char		*make_empty_line(char *map, int map_w)
 	return (map);
 }
 
-char		**cut_map(char **line, t_window *window)
+char		**map_cut(char **line, t_window *window)
 {
 	int		map_w;
 	int		map_h;

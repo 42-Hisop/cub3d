@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 20:04:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/17 14:12:34 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:59:31 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,16 @@ void		check_fnc_element(char **f, char **c)
 
 int			map_is_last(char *str)
 {
+	if (str == NULL)
+		return (1);
 	if (str[0] == '0' || str[0] == '1' || str[0] == ' ')
 		return (1);
 	return (0);
 }
 
-void		skip_space_after_map(char **line, t_window *window)
-{
-	while (line[window->line_n][0] == '\n')
-		window->line_n++;
-}
-
 void		fnc_allocate(char **f, char **c, t_window *window)
 {
-	int		num[7];
+	int		num[6];
 	int		i;
 	int		j;
 

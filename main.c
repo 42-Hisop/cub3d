@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:25:27 by khee-seo          #+#    #+#             */
-/*   Updated: 2021/06/30 19:14:36 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/19 12:40:18 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int		destroy_notify(t_window *window)
 {
+	if (window->map)
+		ft_free_all(window->map);
 	exit(0);
-	return (0);
 }
 
 char	*param_main(int argc, char **argv)
@@ -45,6 +46,7 @@ int		main(int argc, char **argv)
 	window.mlx = mlx_init();
 	window.win = mlx_new_window(window.mlx, SCREEN_W,
 			SCREEN_H, "cub3D");
+	window.map = NULL;
 	map_name = param_main(argc, argv);
 	check_map(&window, map_name);
 	free(map_name);
