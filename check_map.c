@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:20:51 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/19 14:01:28 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:29:57 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,29 @@ int			tex_adr_allocate(char **line, t_texture *tex,
 	return (0);
 }
 
-t_texture	*tex_adr(char **line, t_texture *tex, t_window *window)
+void	ft_memset(int *dst, int val, int size)
 {
-	int		flag[4];
+	int	i;
 
-	while (flag[0] || flag[1] || flag[2] || flag[3])
+	i = 0;
+	while (i < size)
+	{
+		dst[i] = val;
+		i++;
+	}
+	return ;
+}
+
+void	tex_adr(char **line, t_texture *tex, t_window *window)
+{
+	int		flag[6];
+	char	**f;
+	char	**c;
+
+	f = NULL;
+	c = NULL;
+	ft_memset(flag, 1, 6);
+	while (flag[0] || flag[1] || flag[2] || flag[3] || flag[4] || flag[5])
 	{
 		if (map_is_last(line[window->line_n]))
 			error("map data is written first");
@@ -49,12 +67,12 @@ t_texture	*tex_adr(char **line, t_texture *tex, t_window *window)
 			flag[2] = tex_adr_allocate(line, tex, window, 2);
 		if (line_format(line[window->line_n], "EA "))
 			flag[3] = tex_adr_allocate(line, tex, window, 3);
-		if (line_format(line[window->line_n], "F ") ||
-				line_format(line[window->line_n], "C "))
-			error("wall texture adr error");
+		if (line_format(line[window->line_n], "F "))
+			flag[4] = fnc_color(line, window, &f, &c);
+		if (line_format(line[window->line_n], "C "))
+			flag[5] = fnc_color(line, window, &f, &c);
 		window->line_n++;
 	}
-	return (tex);
 }
 
 void		check_map(t_window *window, char *map_name)
@@ -69,7 +87,7 @@ void		check_map(t_window *window, char *map_name)
 	line = split_line(map_fd);
 	close(map_fd);
 	tex_adr(line, window->texture, window);
-	fnc_color(line, window);
+//	fnc_color(line, window);
 	window->map = map_cut(line, window);
 	map_valid(window->map);
 	free_line(line);

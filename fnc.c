@@ -62,30 +62,17 @@ void		fnc_allocate(char **f, char **c, t_window *window)
 	free_line(c);
 }
 
-t_window	*fnc_color(char **line, t_window *window)
+int	fnc_color(char **line, t_window *window, char ***f, char ***c)
 {
-	char	**f;
-	char	**c;
-	int		flag[2];
-
-	flag[0] = 1;
-	flag[1] = 1;
-	while (flag[0] || flag[1])
+	if (line_format(line[window->line_n], "F "))
 	{
-		if (line_format(line[window->line_n], "F "))
-		{
-			f = ft_split(ft_strdup(&line[window->line_n][2]), ',');
-			flag[0] = 0;
-		}
-		if (line_format(line[window->line_n], "C "))
-		{
-			c = ft_split(ft_strdup(&line[window->line_n][2]), ',');
-			flag[1] = 0;
-		}
-		if (map_is_last(line[window->line_n]))
-			error("fnc data error");
-		window->line_n++;
+		*f = ft_split(ft_strdup(&line[window->line_n][2]), ',');
 	}
-	fnc_allocate(f, c, window);
-	return (window);
+	if (line_format(line[window->line_n], "C "))
+	{
+		*c = ft_split(ft_strdup(&line[window->line_n][2]), ',');
+	}
+	if (*f && *c)
+		fnc_allocate(*f, *c, window);
+	return (0);
 }

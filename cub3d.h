@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 01:16:00 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/19 13:40:11 by khee-seo         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:30:30 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char				*param_main(int argc, char **argv);
 int					map_is_last(char *str);
 void				skip_space_after_map(char **line, t_window *window);
 void				fnc_allocate(char **f, char **c, t_window *window);
-t_window			*fnc_color(char **line, t_window *window);
+int					fnc_color(char **line, t_window *window, char ***f, char ***c);
 
 int					check_map_w(char **line, t_window *window);
 int					check_map_h(char **line, t_window *window);
@@ -119,7 +119,7 @@ char				**split_line(int fd);
 int					line_format(char *line, char *str);
 int					tex_adr_allocate(char **line, t_texture *tex,
 		t_window *window, int i);
-t_texture			*tex_adr(char **line, t_texture *tex, t_window *window);
+void				tex_adr(char **line, t_texture *tex, t_window *window);
 void				check_map(t_window *window, char *map_name);
 
 void				texture_init(t_window *window, t_texture *texture);
