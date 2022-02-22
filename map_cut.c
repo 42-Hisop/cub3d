@@ -6,7 +6,7 @@
 /*   By: khee-seo <khee-seo@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 15:30:04 by khee-seo          #+#    #+#             */
-/*   Updated: 2022/02/20 12:17:30 by joupark          ###   ########.fr       */
+/*   Updated: 2022/02/20 12:30:55 by khee-seo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ char	*make_empty_line(char *map, int map_w)
 {
 	int		i;
 
-	if (!(map = (char *)malloc(sizeof(char) * (map_w + 1))))
+	map = (char *)malloc(sizeof(char) * (map_w + 1));
+	if (!map)
 		error("map malloc error");
 	i = 0;
 	while (i < map_w)
@@ -91,12 +92,14 @@ char	**map_cut(char **line, t_window *window)
 
 	map_w = check_map_w(line, window);
 	map_h = check_map_h(line, window);
-	if (!(map = (char **)malloc(sizeof(char *) * (map_h + 2))))
+	map = (char **)malloc(sizeof(char *) * (map_h + 2));
+	if (!map)
 		error("map malloc error");
 	i = 0;
 	while (i < map_h)
 	{
-		if (!(map[i] = (char *)malloc(sizeof(char) * (map_w + 1))))
+		map[i] = (char *)malloc(sizeof(char) * (map_w + 1));
+		if (!map[i])
 			error("map malloc error");
 		map[i] = dup_map(map[i], line[window->line_n], map_w);
 		i++;
